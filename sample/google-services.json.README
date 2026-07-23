@@ -1,7 +1,0 @@
-# Copy your Firebase Console file here as google-services.json, then:
-# 1. Uncomment alias(libs.plugins.google.services) in sample/build.gradle.kts
-# 2. Set applicationId to the Android package registered in that Firebase project
-# 3. Register FirebaseAnalyticsProvider() in SampleApp
-#
-# Do NOT commit real google-services.json if it contains production secrets your
-# team wants to keep private (optional; often committed for open samples).

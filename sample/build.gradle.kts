@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     // Uncomment after placing a real google-services.json from Firebase Console:
-    // alias(libs.plugins.google.services)
+     alias(libs.plugins.google.services)
 }
 
 android {
@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.kit.analytics.sample"
+        applicationId = "com.google.samples.quickstart.admobexample"
         minSdk = 24
         versionCode = 1
         versionName = "1.0"

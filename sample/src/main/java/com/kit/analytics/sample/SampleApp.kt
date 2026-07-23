@@ -3,6 +3,7 @@ package com.kit.analytics.sample
 import android.app.Application
 import com.kit.analytics.Analytics
 import com.kit.analytics.AnalyticsConfig
+import com.kit.analytics.firebase.FirebaseAnalyticsProvider
 import com.kit.analytics.provider.LoggingAnalyticsProvider
 
 class SampleApp : Application() {
@@ -13,7 +14,7 @@ class SampleApp : Application() {
             config = AnalyticsConfig(
                 // Default: Logcat only. Add your real google-services.json, enable the
                 // google-services plugin, then register FirebaseAnalyticsProvider().
-                providers = listOf(LoggingAnalyticsProvider()),
+                providers = listOf(LoggingAnalyticsProvider(), FirebaseAnalyticsProvider()),
                 enabled = true,
                 debug = true,
             ),

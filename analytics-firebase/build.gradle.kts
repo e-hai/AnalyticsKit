@@ -7,7 +7,7 @@ apply(from = "${rootDir}/gradle/android-library-publish.gradle.kts")
 android {
     namespace = "com.kit.analytics.firebase"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
