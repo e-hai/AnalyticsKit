@@ -73,12 +73,46 @@ sequenceDiagram
 | [`:analytics-firebase`](analytics-firebase/) | Firebase 适配；透出 Firebase BOM |
 | [`:sample`](sample/) | 示例 App（Logging + Firebase） |
 
+## JitPack
+
+发布：给仓库打 tag（如 `1.0.0`）并 push；JitPack 按 [`jitpack.yml`](jitpack.yml) 构建并发布库模块。
+
+消费者 `settings.gradle.kts` / 根仓库：
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+依赖：
+
+```kotlin
+dependencies {
+    // 仅核心
+    implementation("com.github.e-hai.AnalyticsKit:analytics:Tag")
+
+    // 含 Firebase（会传递依赖 :analytics）
+    implementation("com.github.e-hai.AnalyticsKit:analytics-firebase:Tag")
+}
+```
+
+将 `Tag` 换成 git tag（如 `1.0.0`）或 commit hash。本地校验：
+
+```bash
+./gradlew :analytics:publishToMavenLocal :analytics-firebase:publishToMavenLocal
+```
+
 ## 快速开始
 
 ### 1. 依赖
 
 ```kotlin
-// app/build.gradle.kts
+// app/build.gradle.kts — 本地工程
 plugins {
     alias(libs.plugins.google.services) // 使用 Firebase 时需要
 }
@@ -88,6 +122,8 @@ dependencies {
     // 仅核心、不接 Firebase 时：
     // implementation(project(":analytics"))
 }
+
+// 或通过 JitPack（见上一节）
 ```
 
 ### 2. 初始化

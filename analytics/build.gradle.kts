@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
 }
 
+apply(from = "${rootDir}/gradle/android-library-publish.gradle.kts")
+
 android {
     namespace = "com.kit.analytics"
     compileSdk {
@@ -18,6 +20,11 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
     }
 }
 

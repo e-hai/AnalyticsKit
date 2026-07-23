@@ -66,8 +66,17 @@ App code → Analytics (facade) → AnalyticsProvider(s) → Vendor SDK
   3. Wire sample optionally
   4. Document in README module table
 
+## Publishing (JitPack)
+
+- Shared script: `gradle/android-library-publish.gradle.kts`
+- Coordinates: `com.github.e-hai.AnalyticsKit:<module>:<git-tag>`
+- Modules published: `:analytics`, `:analytics-firebase` (not `:sample`)
+- CI config: `jitpack.yml` (JDK 21)
+- Do not change `GROUP_ID` casually; it must stay aligned with the GitHub
+  `owner/repo` used by JitPack consumers.
+
 ## Out of scope (unless asked)
 
-- Publishing to Maven
+- Publishing to Maven Central (JitPack is configured)
 - iOS / KMP
 - Changing core API shape without a clear migration path
